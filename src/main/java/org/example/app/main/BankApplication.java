@@ -9,8 +9,8 @@ import org.example.app.factory.impl.BankAccountFactory;
 import org.example.app.model.BankProduct;
 import org.example.app.reader.BankAccountReader;
 import org.example.app.repository.BankRepository;
-import org.example.app.service.InterestCalculationStrategy;
-import org.example.app.service.OverdraftPenaltyStrategy;
+import org.example.app.service.impl.InterestCalculationStrategy;
+import org.example.app.service.impl.OverdraftPenaltyStrategy;
 import org.example.app.service.ProcessingStrategy;
 
 public class BankApplication {
