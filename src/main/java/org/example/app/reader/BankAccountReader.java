@@ -1,10 +1,10 @@
-package org.example.reader;
+package org.example.app.reader;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.exception.FailedToParseAccountsException;
-import org.example.model.BankAccount;
-import org.example.model.BankProduct;
+import org.example.app.model.BankAccount;
+import org.example.app.exception.FailedToParseAccountsException;
+import org.example.app.model.BankProduct;
 
 import java.io.File;
 import java.io.IOException;

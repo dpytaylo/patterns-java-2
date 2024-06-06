@@ -1,6 +1,6 @@
-package org.example.factory;
+package org.example.app.factory;
 
-import org.example.model.BankProduct;
+import org.example.app.model.BankProduct;
 
 public interface BankProductFactory {
     BankProduct createBankProduct(String accountName, long balance);

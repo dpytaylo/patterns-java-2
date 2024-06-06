@@ -1,8 +1,8 @@
-package org.example.factory.impl;
+package org.example.app.factory.impl;
 
-import org.example.factory.BankProductFactory;
-import org.example.model.BankAccount;
-import org.example.model.BankProduct;
+import org.example.app.factory.BankProductFactory;
+import org.example.app.model.BankAccount;
+import org.example.app.model.BankProduct;
 
 public class BankAccountFactory implements BankProductFactory {
     @Override

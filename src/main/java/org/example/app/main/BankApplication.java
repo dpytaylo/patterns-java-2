@@ -1,17 +1,17 @@
-package org.example.main;
+package org.example.app.main;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.decorator.OverdraftProtection;
-import org.example.exception.FailedToParseAccountsException;
-import org.example.factory.impl.BankAccountFactory;
-import org.example.model.BankAccount;
-import org.example.model.BankProduct;
-import org.example.reader.BankAccountReader;
-import org.example.repository.BankRepository;
-import org.example.service.InterestCalculationStrategy;
-import org.example.service.OverdraftPenaltyStrategy;
-import org.example.service.ProcessingStrategy;
+import org.example.app.model.BankAccount;
+import org.example.app.decorator.OverdraftProtection;
+import org.example.app.exception.FailedToParseAccountsException;
+import org.example.app.factory.impl.BankAccountFactory;
+import org.example.app.model.BankProduct;
+import org.example.app.reader.BankAccountReader;
+import org.example.app.repository.BankRepository;
+import org.example.app.service.InterestCalculationStrategy;
+import org.example.app.service.OverdraftPenaltyStrategy;
+import org.example.app.service.ProcessingStrategy;
 
 public class BankApplication {
     private static final Logger logger = LogManager.getLogger();

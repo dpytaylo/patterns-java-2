@@ -1,6 +1,6 @@
-package org.example.decorator;
+package org.example.app.decorator;
 
-import org.example.model.BankProduct;
+import org.example.app.model.BankProduct;
 
 public class OverdraftProtection extends BankProductDecorator {
     private final long overdraftLimit;

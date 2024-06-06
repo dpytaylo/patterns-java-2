@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.app.model;
 
 public class BankAccount extends BankProduct {
     protected String accountName;

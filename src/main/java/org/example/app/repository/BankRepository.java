@@ -1,6 +1,6 @@
-package org.example.repository;
+package org.example.app.repository;
 
-import org.example.model.BankProduct;
+import org.example.app.model.BankProduct;
 
 import java.util.ArrayList;
 import java.util.List;

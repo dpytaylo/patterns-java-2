@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.app.model;
 
 public abstract class BankProduct {
     protected String accountNumber;
