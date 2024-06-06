@@ -13,6 +13,10 @@ public class BankRepository {
         bookings = new ArrayList<>();
     }
 
+    public BankRepository(List<BankProduct> bookings) {
+        this.bookings = bookings;
+    }
+
     public void addBooking(BankProduct booking) {
         bookings.add(booking);
     }

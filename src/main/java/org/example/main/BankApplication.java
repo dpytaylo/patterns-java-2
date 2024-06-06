@@ -2,11 +2,12 @@ package org.example.main;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.builder.BankProductBuilder;
 import org.example.decorator.OverdraftProtection;
 import org.example.exception.FailedToParseAccountsException;
-import org.example.factory.BankAccountFactory;
+import org.example.factory.impl.BankAccountFactory;
+import org.example.model.BankAccount;
 import org.example.model.BankProduct;
+import org.example.reader.BankAccountReader;
 import org.example.repository.BankRepository;
 import org.example.service.InterestCalculationStrategy;
 import org.example.service.OverdraftPenaltyStrategy;
@@ -16,22 +17,32 @@ public class BankApplication {
     private static final Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) throws FailedToParseAccountsException {
-        BankAccountFactory bankAccountFactory = new BankAccountFactory();
-        BankRepository repository = bankAccountFactory.parseJsonFromFile("src/main/resources/input.json");
+        BankAccountReader reader = new BankAccountReader();
 
-        BankProduct bankAccount = new BankProductBuilder()
+        BankRepository repository = new BankRepository(
+            reader.readFromJsonFile("src/main/resources/input.json")
+        );
+
+        BankAccountFactory factory = new BankAccountFactory();
+        BankProduct bankAccount0 = factory.createBankProduct("0", 2000);
+
+        BankProduct bankAccountWithOverdraft0 = new OverdraftProtection(bankAccount0, 23000);
+        logger.info("bankAccountWithOverdraft0 = " + bankAccountWithOverdraft0);
+
+        BankAccount bankAccount1 = BankAccount.builder()
             .setAccountNumber("1")
             .setBalance(1000)
+            .setAccountName("Account Maksim")
             .build();
 
-        BankProduct bankAccountWithOverdraft = new OverdraftProtection(bankAccount, 2000);
-        logger.info("bankAccountWithOverdraft = " + bankAccountWithOverdraft);
+        BankProduct bankAccountWithOverdraft1 = new OverdraftProtection(bankAccount1, 2000);
+        logger.info("bankAccountWithOverdraft1 = " + bankAccountWithOverdraft1);
 
-        ProcessingStrategy interestStrategy = new InterestCalculationStrategy(0.05);
-        interestStrategy.process(bankAccountWithOverdraft);
+        ProcessingStrategy interestStrategy1 = new InterestCalculationStrategy(0.05);
+        interestStrategy1.process(bankAccountWithOverdraft1);
 
-        ProcessingStrategy overdraftPenaltyStrategy = new OverdraftPenaltyStrategy(0.10);
-        overdraftPenaltyStrategy.process(bankAccountWithOverdraft);
+        ProcessingStrategy overdraftPenaltyStrategy1 = new OverdraftPenaltyStrategy(0.10);
+        overdraftPenaltyStrategy1.process(bankAccountWithOverdraft1);
 
         BankProduct bankAccount2 = repository
             .getBookingByAccountNumber("2")

@@ -1,17 +1,19 @@
-package org.example.factory;
+package org.example.reader;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.exception.FailedToParseAccountsException;
 import org.example.model.BankAccount;
-import org.example.repository.BankRepository;
+import org.example.model.BankProduct;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BankAccountFactory {
-    public BankRepository parseJsonFromFile(String filename) throws FailedToParseAccountsException {
-        BankRepository bankRepository = new BankRepository();
+public class BankAccountReader {
+    public List<BankProduct> readFromJsonFile(String filename) throws FailedToParseAccountsException {
+        List<BankProduct> accounts = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -20,13 +22,13 @@ public class BankAccountFactory {
                 String accountNumber = node.get("accountNumber").asText();
                 long balance = node.get("balance").asLong();
 
-                BankAccount bankAccount = new BankAccount(accountNumber, balance);
-                bankRepository.addBooking(bankAccount);
+                BankProduct bankAccount = new BankAccount(accountNumber, balance, "Untitled");
+                accounts.add(bankAccount);
             }
         } catch (IOException e) {
             throw new FailedToParseAccountsException(e);
         }
 
-        return bankRepository;
+        return accounts;
     }
 }

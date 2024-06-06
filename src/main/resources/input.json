@@ -6,5 +6,77 @@
   {
     "accountNumber": "2",
     "balance": 2000
+  },
+  {
+    "accountNumber": "3",
+    "balance": 5000
+  },
+  {
+    "accountNumber": "4",
+    "balance": 750
+  },
+  {
+    "accountNumber": "5",
+    "balance": 3000
+  },
+  {
+    "accountNumber": "6",
+    "balance": 1200
+  },
+  {
+    "accountNumber": "7",
+    "balance": 4500
+  },
+  {
+    "accountNumber": "8",
+    "balance": 6200
+  },
+  {
+    "accountNumber": "9",
+    "balance": 8200
+  },
+  {
+    "accountNumber": "10",
+    "balance": 950
+  },
+  {
+    "accountNumber": "11",
+    "balance": 3300
+  },
+  {
+    "accountNumber": "12",
+    "balance": 4100
+  },
+  {
+    "accountNumber": "13",
+    "balance": 2750
+  },
+  {
+    "accountNumber": "14",
+    "balance": 6400
+  },
+  {
+    "accountNumber": "15",
+    "balance": 4900
+  },
+  {
+    "accountNumber": "16",
+    "balance": 1800
+  },
+  {
+    "accountNumber": "17",
+    "balance": 3700
+  },
+  {
+    "accountNumber": "18",
+    "balance": 2300
+  },
+  {
+    "accountNumber": "19",
+    "balance": 7800
+  },
+  {
+    "accountNumber": "20",
+    "balance": 9100
   }
 ]
